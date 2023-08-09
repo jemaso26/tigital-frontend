@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  private apiUrl = '/api/v1/auth';
+  private axiosInstance: AxiosInstance;
 
-  private apiUrl = 'https://localhost:8080/api/v1/auth';
-
-  constructor(private http: HttpClient) {}
+  constructor() {
+    this.axiosInstance = axios.create({
+      baseURL: this.apiUrl,
+    });
+  }
 
   login(username: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({
+    const headers = {
       Authorization: 'Basic ' + btoa(`${username}:${password}`),
-      'Content-Type': 'application/json'
-    });
+      'Content-Type': 'application/json',
+    };
 
-    return this.http.post(this.apiUrl, null, { headers });
+    return from(this.axiosInstance.post('', null, { headers })).pipe(
+      map((response: AxiosResponse) => response.data)
+    );
   }
 }
