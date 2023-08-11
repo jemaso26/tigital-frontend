@@ -1,7 +1,7 @@
 export class UserModel {
   private _firstName: string;
   private _lastName: string;
-  private _email: string;
+  private _email: any;
   private _phone: any;
 
   constructor(opts: {
