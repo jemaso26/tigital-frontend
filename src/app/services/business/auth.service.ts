@@ -15,11 +15,11 @@ export class AuthService {
     @Inject(REST_AUTH_SERVICE_TOKEN) private dataProvider: IAuthDataSource
   ) {}
 
-  login(username: string, password: string): Observable<ILoginReponse> {
+  login(username: string, password: string): Observable<any> {
     return from(this.dataProvider.login(username, password)).pipe();
   }
 
-  signUp(username: string, password: string): Observable<any> {
+  signUp(username: string, password: string): Observable<ISignupResponse> {
     return from(this.dataProvider.signUp(username, password)).pipe();
   }
 }
