@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/business/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -25,11 +25,7 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Login failed', error);
-        const {
-          response: { data },
-        } = error;
-
-        alert(data.message);
+        alert(error.message);
       }
     );
   }
