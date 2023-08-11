@@ -19,7 +19,7 @@ export class AuthService {
     return from(this.dataProvider.login(username, password)).pipe();
   }
 
-  signUp(username: string, password: string): Observable<ISignupResponse> {
+  signUp(username: string, password: string): Observable<any> {
     return from(this.dataProvider.signUp(username, password)).pipe();
   }
 }
