@@ -1,8 +1,8 @@
 export class UserModel {
   private _firstName: string;
   private _lastName: string;
-  private _email: any;
-  private _phone: any;
+  private _email: string;
+  private _phone: string;
 
   constructor(opts: {
     firstName: string;
