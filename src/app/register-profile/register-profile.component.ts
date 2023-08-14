@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user.service';
 import { UserModel } from '../shared/models/UserModel';
+import { UserService } from '../services/business/user.service';
 
 @Component({
   selector: 'app-register-profile',
@@ -14,6 +14,7 @@ export class RegisterProfileComponent {
 
   onSubmit() {
     // Call the service to register the user
+<<<<<<< HEAD
     this.userService.register(this.user).subscribe(
       (response) => {
         console.log('User registered successfully', response);
@@ -24,6 +25,8 @@ export class RegisterProfileComponent {
     );
 
 
+=======
+>>>>>>> a6a3cc62e2632f5a019922b528854f40471a63f9
   }
 
 }

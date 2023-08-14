@@ -1,13 +1,13 @@
 export class UserModel {
-  private _firstName: String;
-  private _lastName: String;
-  private _email: String;
-  private _phone: String;
+  private _firstName: string;
+  private _lastName: string;
+  private _email: string;
+  private _phone: string;
 
   constructor(opts: {
-    firstName: String;
-    lastName: String;
-    email: String;
+    firstName: string;
+    lastName: string;
+    email: string;
     phone: string;
   }) {
     this._lastName = opts.lastName;
@@ -16,31 +16,35 @@ export class UserModel {
     this._phone = opts.phone;
   }
 
-  public get firstName(): String {
+  public get firstName(): string {
     return this._firstName;
   }
-  public set firstName(value: String) {
+
+  public set firstName(value: string) {
     this._firstName = value;
   }
 
-  public get lastName(): String {
+  public get lastName(): string {
     return this._lastName;
   }
-  public set lastName(value: String) {
+
+  public set lastName(value: string) {
     this._lastName = value;
   }
 
-  public get email(): String {
+  public get email(): string {
     return this._email;
   }
-  public set email(value: String) {
+
+  public set email(value: string) {
     this._email = value;
   }
 
-  public get phone(): String {
+  public get phone(): string {
     return this._phone;
   }
-  public set phone(value: String) {
+
+  public set phone(value: string) {
     this._phone = value;
   }
 }

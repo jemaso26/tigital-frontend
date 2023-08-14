@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user.service';
+import { AuthService } from '../services/business/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,20 +10,16 @@ export class SignupComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private authService: AuthService) {}
 
   onSubmit() {
-    this.userService.signUp(this.username, this.password).subscribe(
+    this.authService.signUp(this.username, this.password).subscribe(
       (response) => {
         console.log({ response });
       },
       (error) => {
         console.error('Login failed', error);
-        const {
-          response: { data },
-        } = error;
-
-        alert(data.message);
+        alert(error.message);
       }
     );
   }
