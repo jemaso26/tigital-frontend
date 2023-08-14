@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { RegisterProfileComponent } from './register-profile/register-profile.component';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { RegisterProfileComponent } from './register-profile/register-profile.co
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

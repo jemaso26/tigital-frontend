@@ -7,6 +7,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
   providedIn: 'root',
 })
 export class AuthService {
+  [x: string]: any;
   private apiUrl = '/api/v1/auth';
   private axiosInstance: AxiosInstance;
 
@@ -26,4 +27,10 @@ export class AuthService {
       map((response: AxiosResponse) => response.data)
     );
   }
+
+  isUserLoggedIn(): boolean {
+    const authToken = localStorage.getItem('authToken'); 
+    return true ;
+  }
+
 }

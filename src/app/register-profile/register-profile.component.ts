@@ -22,5 +22,8 @@ export class RegisterProfileComponent {
         console.error('Error registering user', error);
       }
     );
+
+
   }
+
 }
