@@ -13,3 +13,4 @@ import { RestAuthService } from 'src/app/services/data-providers/RestAuthService
 export const REST_AUTH_SERVICE_TOKEN = new InjectionToken<RestAuthService>(
   'RestAuthService'
 );
+

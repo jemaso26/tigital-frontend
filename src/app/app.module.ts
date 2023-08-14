@@ -8,10 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { RegisterProfileComponent } from './register-profile/register-profile.component';
-import { AuthService } from './auth.service';
-
 import { RestAuthService } from './services/data-providers/RestAuthService';
 import { REST_AUTH_SERVICE_TOKEN } from './shared/injection-tokens/rest.auth.token';
+import { REST_PROFILE_SERVICE_TOKEN } from './shared/injection-tokens/rest.profile.token';
+import { RestProfileService } from './services/data-providers/RestProfileService';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,10 @@ import { REST_AUTH_SERVICE_TOKEN } from './shared/injection-tokens/rest.auth.tok
     {
       provide: REST_AUTH_SERVICE_TOKEN,
       useClass: RestAuthService,
+    },
+    {
+      provide: REST_PROFILE_SERVICE_TOKEN,
+      useClass: RestProfileService,
     },
   ],
   bootstrap: [AppComponent],

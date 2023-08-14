@@ -11,6 +11,10 @@ import { REST_AUTH_SERVICE_TOKEN } from 'src/app/shared/injection-tokens/rest.au
   providedIn: 'root',
 })
 export class AuthService {
+  isUserLoggedIn(): boolean {
+    const isTokenNull = !localStorage.getItem("authToken")
+    return !isTokenNull
+   }
   constructor(
     @Inject(REST_AUTH_SERVICE_TOKEN) private dataProvider: IAuthDataSource
   ) {}

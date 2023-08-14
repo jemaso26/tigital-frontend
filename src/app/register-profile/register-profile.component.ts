@@ -13,8 +13,6 @@ export class RegisterProfileComponent {
   constructor(private userService: UserService) {}
 
   onSubmit() {
-    // Call the service to register the user
-<<<<<<< HEAD
     this.userService.register(this.user).subscribe(
       (response) => {
         console.log('User registered successfully', response);
@@ -22,11 +20,6 @@ export class RegisterProfileComponent {
       (error) => {
         console.error('Error registering user', error);
       }
-    );
-
-
-=======
->>>>>>> a6a3cc62e2632f5a019922b528854f40471a63f9
+    )
   }
-
 }
