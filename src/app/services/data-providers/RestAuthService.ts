@@ -15,6 +15,7 @@ export interface IAuthDataSource {
 
 export interface ILoginReponse {
   token: string;
+  userId: number;
 }
 
 @Injectable({
@@ -35,10 +36,10 @@ export class RestAuthService implements IAuthDataSource {
       };
 
       const {
-        data: { token },
+        data: { token, userId },
       } = await this.axiosInstance.patch('', null, { headers });
 
-      return { token };
+      return { token, userId };
     } catch (error) {
       if (error instanceof AxiosError) {
         const data = error.response?.data;

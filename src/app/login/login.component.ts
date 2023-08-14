@@ -20,6 +20,7 @@ export class LoginComponent {
         // After successful login
         console.log(response.token);
         localStorage.setItem('authToken', response.token);
+        localStorage.setItem('userId', response.userId.toString());
         //To retrieve the token later:
         //const authToken = localStorage.getItem('authToken');
       },

@@ -9,17 +9,18 @@ import { UserService } from '../services/business/user.service';
 })
 export class RegisterProfileComponent {
   user = new UserModel({ firstName: '', lastName: '', phone: '', email: '' });
+  private userId = localStorage.getItem('userId') as unknown as number;
 
   constructor(private userService: UserService) {}
 
   onSubmit() {
-    this.userService.register(this.user).subscribe(
+    this.userService.register(this.userId, this.user).subscribe(
       (response) => {
         console.log('User registered successfully', response);
       },
       (error) => {
         console.error('Error registering user', error);
       }
-    )
+    );
   }
 }
